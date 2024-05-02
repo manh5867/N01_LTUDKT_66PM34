@@ -38,3 +38,4 @@ class Salesperson(Employee):
         super().display_information()
         print(f"Revenue: {self.revenue}")
         print(f"Months Worked: {self.months_worked}")
+        

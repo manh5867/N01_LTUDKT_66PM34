@@ -4,7 +4,7 @@ class ManageEmployee:
     def __init__(self):
         self.employees = []
 
-    # Add an employee
+    #YC2.1 Add an employee
     def add_employee(self):
         print("Select employee type:")
         print("1. Add New Manager")
@@ -38,5 +38,31 @@ class ManageEmployee:
             print("Invalid choice !!!")
     
     
+    # YC2.5. Show Employee by job position
+    def show_employee_by_job_position(self):
+        job_positions = {
+            "1": "Manager",
+            "2": "Salesperson"
+        }
 
+        print("Select a job position:")
+        for key, value in job_positions.items():
+            print(f"{key}. {value}")
+
+        choice = input("Enter your choice: ")
+
+        if choice in job_positions:
+            matching_employees = [employee for employee in self.employees if employee.position == job_positions[choice]]
+
+            if len(matching_employees) == 0:
+                print(f"No employees found with the job position '{job_positions[choice]}'.")
+            else:
+                print(f"Employees with the job position '{job_positions[choice]}':")
+                for employee in matching_employees:
+                    print("--------------------")
+                    employee.display_information()
+                    print("--------------------")
+        else:
+            print("Invalid choice. Please try again.")
+         
         
